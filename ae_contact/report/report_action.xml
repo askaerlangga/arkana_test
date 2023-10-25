@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pokemon_xlsx_action" model="ir.actions.report">
+            <field name="name">Pokemon (XLSX)</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">ae_contact.pokemon_xlsx</field>
+            <field name="report_file">ae_contact.pokemon_xlsx</field>
+            <field name="print_report_name">'Pokemon'</field>
+        </record>
+    </data>
+</odoo>

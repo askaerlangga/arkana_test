@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <record id="res_partner_kanban_inherit" model="ir.ui.view">
+      <field name="name">res.partner.kanban.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//kanban" position="attributes">
+          <attribute name="js_class">button_in_kanban</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="res_partner_tree_inherit" model="ir.ui.view">
+      <field name="name">res.partner.tree.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree" position="attributes">
+          <attribute name="js_class">button_in_tree</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="res_partner_form_inherit" model="ir.ui.view">
+      <field name="name">res.partner.form.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='internal_notes']" position="after">
+          <page name="pokemon_detail_page" string="Pokemon Detail">
+            <group>
+              <group>
+                <field name="base_hp"/>
+                <field name="base_attack"/>
+                <field name="base_defense"/>
+              </group>
+              <group>
+                <field name="base_special_attack"/>
+                <field name="base_special_defense"/>
+                <field name="base_speed"/>
+                <field name="pokemon_type_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="//field[@name='category_id']" position="after">
+          <field name="pokemon_url"/>
+        </xpath>
+        <xpath expr="//form/*" position="before">
+          <header>
+            <button name="fetch_pokemon_detail_action" type="object" string="Fetch" class="btn-primary"/>
+          </header>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
